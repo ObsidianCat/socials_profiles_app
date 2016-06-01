@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="paloAltoFrontApp">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Palo Alto Social</title>
 
     <!--vendors scripts-->
@@ -14,6 +16,7 @@
     <script src="javascripts/paloAltoFrontApp.js"></script>
     <script src="javascripts/profilesCtrl.js"></script>
     <script src="javascripts/inboxCtrl.js"></script>
+    <script src="javascripts/newProfileCtrl.js"></script>
     <script src="javascripts/dataHandlerService.js"></script>
 
     <!--vendor css-->
@@ -39,7 +42,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">My inbox</a></li>
           <li class="hidden-md hidden-lg hidden-sm active"><a href="/#/profiles">Profiles</a></li>
-          <li class="hidden-md hidden-lg hidden-sm"><a href="/#/inbox">Add New Profile</a></li>
+          <li class="hidden-md hidden-lg hidden-sm"><a href="/#/new-profile">Add New Profile</a></li>
         </ul>
       </div>
     </div>
@@ -50,7 +53,7 @@
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active"><a href="/#/profiles">Profiles</a></li>
-          <li><a href="/#/inbox">Add New Profile</a></li>
+          <li><a href="/#/new-profile">Add New Profile</a></li>
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>

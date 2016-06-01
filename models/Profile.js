@@ -8,8 +8,7 @@ var mongoose = require("mongoose"),
     Schema = mongoose.Schema;
 
 var profileModel = new Schema({
-    firstName:String,
-    lastName:String,
+    fullName:String,
     shortTitle:String,
     status:String,
     pictureUrl:String,
@@ -17,5 +16,6 @@ var profileModel = new Schema({
     numOfPhotos:{type:Number, default:0},
     numOfLikes:{type:Number, default:0}
 });
+
 
 module.exports = mongoose.model("Profile", profileModel);

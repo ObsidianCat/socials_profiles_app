@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-require('./models/Message');
-require('./models/Profile');
+var Message = require('./models/Message');
+var Profile = require('./models/Profile');
 
 mongoose.connect('mongodb://localhost/social');
 
@@ -68,6 +68,41 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+// Init DB
+
+(function initDB() {
+  function findOrCreate(user) {
+    Profile.find({"fullName":user.fullName}, function(err, dbUser) {
+      if (err) throw err;
+
+      if (dbUser.length == 0) {
+        var newUser = Profile(user);
+        newUser.save(function(err) {
+          if (err) throw err;
+
+          console.log('User created!');
+        });
+      }
+      else {
+        console.log(user.fullName + " already exists");
+      }
+    });
+  }
+
+  var fs = require('fs');
+  fs.readFile('./data/initUsersData.json', 'utf8', function(err, data) {
+    if (err) throw err;
+    var users = JSON.parse(data);
+
+    if (users && users.length) {
+      for (var i = 0; i < users.length; i++) {
+        findOrCreate(users[i]);
+      }
+    }
+  });
+})();
 
 
 module.exports = app;

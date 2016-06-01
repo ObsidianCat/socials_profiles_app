@@ -14,6 +14,10 @@ angular.module('paloAltoFrontApp', ['ngRoute', 'ngResource'])
                 templateUrl: '/templates/inbox.ejs',
                 controller: 'inboxCtrl'
             })
+            .when('/new-profile', {
+                templateUrl: '/templates/newProfile.ejs',
+                controller: 'newProfileCtrl'
+            })
             .otherwise({
                 redirectTo: '/profiles'
             });
