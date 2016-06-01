@@ -12,4 +12,4 @@ var messageModel = new Schema({
     hasAttachmend:{type:Boolean, default:false}
 });
 
-module.exports = mongoose.model("Profile", profileModel);
+module.exports = mongoose.model("Message", messageModel);

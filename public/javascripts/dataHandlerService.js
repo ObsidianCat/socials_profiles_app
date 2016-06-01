@@ -13,7 +13,9 @@ angular.module('paloAltoFrontApp').factory('DataHandler', [
                 return profilesRes.query().$promise
             },
             getAllMessages: function(){
-                return inboxRes.query().$promise
+                //work around the fact that res.json can return only object, 
+                // not array of my mock up messages data
+                return inboxRes.get().$promise
             }
         };
 

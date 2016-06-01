@@ -1,3 +1,8 @@
-[{
-
-}]
+[
+  {
+  "body":"Test message 1"
+  },
+  {
+    "body":"Test message 2"
+  }
+]

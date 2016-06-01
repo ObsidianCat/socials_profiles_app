@@ -13,6 +13,9 @@ mongoose.connect('mongodb://localhost/social');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var profiles = require('./routes/profiles');
+var messages = require('./routes/messages');
+
 
 var app = express();
 
@@ -32,6 +35,8 @@ app.use('/vendorAssets', express.static(__dirname + '/node_modules/'));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/profiles', profiles);
+app.use('/messages', messages);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
