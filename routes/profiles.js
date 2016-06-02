@@ -10,9 +10,10 @@ var Profile = mongoose.model('Profile');
 router.route("/")
     //create new profile
     .post(function(req,res){
+        // console.log(req.body);
         var profile = new Profile(req.body);
         profile.save();
-        res.status(201).send(profile);
+        res.status(201).send({status:"success"});
     })
     //get all existing profiles from database
     .get(function (req, res) {

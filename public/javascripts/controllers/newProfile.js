@@ -7,8 +7,26 @@
 angular.module('paloAltoFrontApp').controller("newProfileCtrl", [
     '$scope',
     'DataHandler',
-    function($scope, DataHandler){
+    '$window',
+    '$location',
+    function($scope, DataHandler, $window, $location){
+        $scope.addNewProfile = function(){
+            if($scope.newProfile.fullName.trim() !="" && $scope.newProfile.shortTitle.trim() !=""){
+                DataHandler.saveProfile($scope.newProfile).then(function(result){
+                    if(result.status=="success"){
+                        $location.path('/profiles');
 
+                    }
+                    else {
+                        $window.alert("some errors occurred");
+                    }
+                });
+
+            }
+            else{
+                $window.alert("Please fill title and text fields!");
+            }
+        };
 
     }
 ]);

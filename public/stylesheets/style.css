@@ -26,3 +26,7 @@ div.profiles .profile-content .main-info{
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+#inbox-page table th:first-child{
+  width: 20%;
+}

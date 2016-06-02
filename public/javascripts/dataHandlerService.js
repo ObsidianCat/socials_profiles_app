@@ -12,6 +12,9 @@ angular.module('paloAltoFrontApp').factory('DataHandler', [
             getAllProfiles: function(){
                 return profilesRes.query().$promise
             },
+            saveProfile:function(newProfile){
+                return profilesRes.save(newProfile).$promise;
+            },
             getMessages: function(param){
                 //work around the fact that res.json can return only object, 
                 // not array of my mock up messages data

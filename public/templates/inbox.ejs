@@ -1,49 +1,54 @@
-<h1 class="page-header">Inbox</h1>
-<div class="table-responsive">
-    <h2 class="sub-header">Received</h2>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Sender</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Attachment</th>
-            <th>Starred</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="message in receivedMessages">
-            <td>{{message.sender}}</td>
-            <td>{{message.title}}</td>
-            <td>{{message.date}}</td>
-            <td>{{message.attachment}}</td>
-            <td>{{message.isStarred}}</td>
-            <!--<td colspan="100%">{{message.body}}</td>-->
+<div id="inbox-page">
+    <h1 class="page-header">Inbox</h1>
+    <div class="table-responsive">
+        <h2 class="sub-header">Received</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Attachment</th>
+                <th>Starred</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat-start="message in receivedMessages">
+                <td>{{message.sender}}</td>
+                <td>{{message.title}}</td>
+                <td>{{message.date}}</td>
+                <td>{{message.attachment}}</td>
+                <td>{{message.isStarred}}</td>
+            </tr>
+            <tr ng-repeat-end>
+                <td colspan="5">{{message.body}}</td>
+            </tr>
+            </tbody>
+        </table>
 
-        </tr>
-
-        </tbody>
-    </table>
-
-    <h2 class="sub-header">Sent</h2>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Header</th>
-            <th>Header</th>
-            <th>Header</th>
-            <th>Header</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1,001</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>sit</td>
-        </tr>
-        </tbody>
-    </table>
+        <h2 class="sub-header">Sent</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Receiver</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Attachment</th>
+                <th>Starred</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat-start="message in sentMessages">
+                <td>{{message.receiver}}</td>
+                <td>{{message.title}}</td>
+                <td>{{message.date}}</td>
+                <td>{{message.attachment}}</td>
+                <td>{{message.isStarred}}</td>
+            </tr>
+            <tr ng-repeat-end>
+                <td colspan="5">{{message.body}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
