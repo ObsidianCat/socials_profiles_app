@@ -13,15 +13,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat-start="message in receivedMessages">
+            <tr ng-repeat-start="message in receivedMessages"
+                ng-click = "toggleMessage('received', $index)">
                 <td>{{message.sender}}</td>
                 <td>{{message.title}}</td>
                 <td>{{message.date}}</td>
                 <td>{{message.attachment}}</td>
-                <td>{{message.isStarred}}</td>
+                <td ng-click = "toggleStar($event, 'received', $index)">{{message.isStarred}}</td>
             </tr>
             <tr ng-repeat-end>
-                <td colspan="5">{{message.body}}</td>
+                <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
             </tr>
             </tbody>
         </table>
@@ -38,15 +39,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat-start="message in sentMessages">
+            <tr ng-repeat-start="message in sentMessages"
+                ng-click = "toggleMessage('sent', $index)">
                 <td>{{message.receiver}}</td>
                 <td>{{message.title}}</td>
                 <td>{{message.date}}</td>
                 <td>{{message.attachment}}</td>
-                <td>{{message.isStarred}}</td>
+                <td ng-click = "toggleStar($event, 'sent', $index)">{{message.isStarred}}</td>
             </tr>
             <tr ng-repeat-end>
-                <td colspan="5">{{message.body}}</td>
+                <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
             </tr>
             </tbody>
         </table>
