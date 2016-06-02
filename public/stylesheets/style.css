@@ -7,4 +7,22 @@ a {
   color: #00B7FF;
 }
 
-/*hide element on big screen*
+div.profiles .profile-content{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D0D0D0;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+}
+div.profiles .profile-content .image-wrap{
+  display: inline-block;
+  width: 50%;
+}
+
+div.profiles .profile-content .main-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

@@ -35,8 +35,8 @@ app.use('/vendorAssets', express.static(__dirname + '/node_modules/'));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/profiles', profiles);
-app.use('/messages', messages);
+app.use('/data/profiles', profiles);
+app.use('/data/messages', messages);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

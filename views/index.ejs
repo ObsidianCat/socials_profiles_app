@@ -14,10 +14,11 @@
     <script src="/vendorAssets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--Custom scripts-->
     <script src="javascripts/paloAltoFrontApp.js"></script>
-    <script src="javascripts/profilesCtrl.js"></script>
-    <script src="javascripts/inboxCtrl.js"></script>
-    <script src="javascripts/newProfileCtrl.js"></script>
+    <script src="javascripts/controllers/profiles.js"></script>
+    <script src="javascripts/controllers/inbox.js"></script>
+    <script src="javascripts/controllers/newProfile.js"></script>
     <script src="javascripts/dataHandlerService.js"></script>
+    <script src="javascripts/directives/menuItem.js"></script>
 
     <!--vendor css-->
     <link rel="stylesheet" href="/vendorAssets/bootstrap/dist/css/bootstrap.min.css">
@@ -36,13 +37,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Palo Alto Social</a>
+        <a class="navbar-brand" href="#">Social App</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">My inbox</a></li>
-          <li class="hidden-md hidden-lg hidden-sm active"><a href="/#/profiles">Profiles</a></li>
-          <li class="hidden-md hidden-lg hidden-sm"><a href="/#/new-profile">Add New Profile</a></li>
+          <li menu-item class="hidden-md hidden-lg hidden-sm active"><a href="/#/profiles">Profiles</a></li>
+          <li menu-item class="hidden-md hidden-lg hidden-sm"><a href="/#/inbox">My inbox</a></li>
+          <li menu-item class="hidden-md hidden-lg hidden-sm"><a href="/#/new-profile">Add New Profile</a></li>
         </ul>
       </div>
     </div>
@@ -52,8 +53,9 @@
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-          <li class="active"><a href="/#/profiles">Profiles</a></li>
-          <li><a href="/#/new-profile">Add New Profile</a></li>
+          <li menu-item class="active"><a href="/#/profiles">Profiles</a></li>
+          <li menu-item ><a href="/#/inbox">My inbox</a></li>
+          <li menu-item ><a href="/#/new-profile">Add New Profile</a></li>
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
