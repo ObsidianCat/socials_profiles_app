@@ -5,7 +5,7 @@ var mongoose = require("mongoose"),
     Schema = mongoose.Schema;
 
 //in real world application a sender and user would be database given ids
-//like  sender:{type:mongoose.Schema.Types.ObjectId, ref:'Profile'},
+//example  sender:{type:mongoose.Schema.Types.ObjectId, ref:'Profile'},
 var messageModel = new Schema({
     sender:String,
     receiver:String,

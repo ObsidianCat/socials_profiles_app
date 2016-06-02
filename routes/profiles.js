@@ -10,7 +10,6 @@ var Profile = mongoose.model('Profile');
 router.route("/")
     //create new profile
     .post(function(req,res){
-        // console.log(req.body);
         var profile = new Profile(req.body);
         profile.save();
         res.status(201).send({status:"success"});

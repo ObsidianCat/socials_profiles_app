@@ -8,15 +8,10 @@ var Message = mongoose.model('Message');
 
 /* GET mockup data for inbox */
 router.get('/sent', function (req, res) {
-    // var query = Message.find([{ from: 'Lula Leus' }, { to: 'Lula Leus' }]);
-    // query.exec(function(err, messages){
-    //     if(err){
-    //         res.status(500).send(err);
-    //     }
-    //     else{
-    //         res.json(messages);
-    //     }
-    // });
+    // I base my search on sender and receiver properties, instead of ids,
+    // because I cannot be sure that mongoose will assign the same ids to objects
+    // at every run of database initial population.
+    // This approach is inappropriate for real life application, but convenient for small test app
     Message.find({sender: 'Lula Leus'}, function(err, messages){
         if(err){
             res.status(500).send(err);
