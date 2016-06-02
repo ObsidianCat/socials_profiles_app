@@ -3,7 +3,17 @@
  */
 angular.module('paloAltoFrontApp').controller("inboxCtrl", [
     '$scope',
-    function($scope){
-        $scope.hello = "Hello from inbox controller"
+    'DataHandler',
+    function($scope, DataHandler){
+        $scope.sentMessages = [];
+        $scope.receivedMessages = [];
+
+        DataHandler.getMessages("sent").then(function(response) {
+            $scope.sentMessages  = response;
+            console.log($scope.sentMessages);
+        });
+        DataHandler.getMessages("received").then(function(response) {
+            $scope.receivedMessages  = response;
+        });
     }
 ]);

@@ -12,7 +12,6 @@ var Profile = require('./models/Profile');
 mongoose.connect('mongodb://localhost/social');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var profiles = require('./routes/profiles');
 var messages = require('./routes/messages');
 
@@ -34,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/vendorAssets', express.static(__dirname + '/node_modules/'));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/data/profiles', profiles);
 app.use('/data/messages', messages);
 
@@ -73,7 +71,7 @@ app.use(function(err, req, res, next) {
 // Init DB
 
 (function initDB() {
-  function findOrCreate(user) {
+  function findOrCreateUser(user) {
     Profile.find({"fullName":user.fullName}, function(err, dbUser) {
       if (err) throw err;
 
@@ -91,6 +89,24 @@ app.use(function(err, req, res, next) {
     });
   }
 
+  function findOrCreateMessage(message) {
+    Message.find({"title":message.title}, function(err, dbMessage) {
+      if (err) throw err;
+
+      if (dbMessage.length == 0) {
+        var newMessage = Message(message);
+        newMessage.save(function(err) {
+          if (err) throw err;
+
+          console.log('Message created!');
+        });
+      }
+      else {
+        console.log(message.title + " already exists");
+      }
+    });
+  }
+
   var fs = require('fs');
   fs.readFile('./data/initUsersData.json', 'utf8', function(err, data) {
     if (err) throw err;
@@ -98,7 +114,17 @@ app.use(function(err, req, res, next) {
 
     if (users && users.length) {
       for (var i = 0; i < users.length; i++) {
-        findOrCreate(users[i]);
+        findOrCreateUser(users[i]);
+      }
+    }
+  });
+  fs.readFile('./data/initMessagesData.json', 'utf8', function(err, data) {
+    if (err) throw err;
+    var messages = JSON.parse(data);
+
+    if (messages && messages.length) {
+      for (var i = 0; i < messages.length; i++) {
+        findOrCreateMessage(messages[i]);
       }
     }
   });

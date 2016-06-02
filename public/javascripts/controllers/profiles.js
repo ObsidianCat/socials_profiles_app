@@ -6,11 +6,10 @@ angular.module('paloAltoFrontApp').controller("profilesCtrl", [
     'DataHandler',
     function($scope, DataHandler){
         $scope.profilesList = [];
-        console.log("hello from profiles controller");
 
         DataHandler.getAllProfiles().then(function(response) {
             $scope.profilesList = response;
-            console.log($scope.profilesLis);
+            console.log($scope.profilesList);
         });
         
     }
