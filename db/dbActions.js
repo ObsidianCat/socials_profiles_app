@@ -14,7 +14,7 @@ function clearDB() {
     })
 }
 
-
+//clearDB();
 function initDB() {
     function findOrCreateUser(user) {
         Profile.find({"fullName":user.fullName}, function(err, dbUser) {
@@ -73,7 +73,7 @@ function initDB() {
             }
         }
     });
-};
+}
 
 var dbActions = {
     init: initDB,

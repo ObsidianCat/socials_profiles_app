@@ -1,5 +1,5 @@
 /**
- * Created by Lula on 6/2/2016.
+ * Directive intended for use in elements of navigation menus.
  */
 angular.module('paloAltoFrontApp').directive('menuItem', ['$location',
     function ($location) {

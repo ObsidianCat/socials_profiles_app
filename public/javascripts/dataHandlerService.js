@@ -9,16 +9,29 @@ angular.module('paloAltoFrontApp').factory('DataHandler', [
         var profilesRes =  $resource('/data/profiles');
         var messagesRes = $resource('/data/messages/:type',  {type:'@type'});
         var dataMethods = {
+            /**
+             * fetch all existing profiles from the server
+             * @returns {*}
+             */
             getAllProfiles: function(){
                 return profilesRes.query().$promise
             },
+            /**
+             * Send object with data for new profiles
+             * to server for saving
+             * @param Object newProfile
+             * @returns {*}
+             */
             saveProfile:function(newProfile){
                 return profilesRes.save(newProfile).$promise;
             },
-            getMessages: function(param){
-                //work around the fact that res.json can return only object, 
-                // not array of my mock up messages data
-                return messagesRes.query({type:param}).$promise
+            /**
+             * fetch array of messages for inbox 
+             * @param String messagesType
+             * @returns {Promise}
+             */
+            getMessages: function(messagesType){
+                return messagesRes.query({type:messagesType}).$promise
             }
         };
 

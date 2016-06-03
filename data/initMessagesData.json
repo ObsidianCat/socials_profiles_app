@@ -3,16 +3,16 @@
     "sender":"Mor Pinkweiss",
     "receiver": "Lula Leus",
     "title":"Lorem ipsum dolor sit amet?",
-    "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus semper dolor, in ultricies lorem bibendum et. Nam dictum, quam ut pulvinar scelerisque, massa ligula condimentum urna, quis blandit mi elit eleifend leo. Nulla id tortor mattis enim gravida euismod in eget lectus. Aliquam vitae blandit sapien, eu commodo sapien. Etiam sollicitudin varius mauris, nec auctor risus suscipit ut. Aliquam in rhoncus turpis, sed venenatis purus. Nullam eu sapien quis ante pulvinar vehicula eget sit amet tortor. Sed finibus placerat pharetra.",
+    "body":"Lorem ipsum dolor sit amet, <i>consectetur</i> adipiscing elit. Cras maximus semper dolor, in ultricies lorem bibendum et. Nam dictum, quam ut pulvinar scelerisque, massa ligula condimentum urna, quis blandit mi elit eleifend leo. Nulla id tortor mattis enim gravida euismod in eget lectus. Aliquam vitae blandit sapien, eu commodo sapien. Etiam sollicitudin varius mauris, nec auctor risus suscipit ut. Aliquam in rhoncus turpis, sed venenatis purus. Nullam eu sapien quis ante pulvinar vehicula eget sit amet tortor. Sed finibus placerat pharetra.",
     "attachment":"false",
     "isStarred":"true",
-    "date":"21464856574461"
+    "date":"1464856874469"
   },
   {
-    "sender":"Mor Pinkweiss",
+    "sender":"Asher Kastro",
     "receiver": "Lula Leus",
     "title":"Sed rutrum diam massa, vel!",
-    "body":"Vestibulum laoreet eros ornare turpis volutpat, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
+    "body":"Vestibulum laoreet <i>eros ornare</i> turpis volutpat, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
     "attachment":"true",
     "isStarred":"false",
     "date":"1464856574469"
@@ -21,7 +21,7 @@
     "sender":"Lula Leus",
     "receiver": "Mor Pinkweiss",
     "title":"Sed rutrum diam massa, vel!",
-    "body":"Vestibulum laoreet eros ornare turpis volutpat, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
+    "body":"Vestibulum <b>laoreet</b> eros ornare turpis volutpat, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
     "attachment":"false",
     "isStarred":"false",
     "date":"1464856574461"
@@ -36,10 +36,10 @@
     "date":"1464856571463"
   },
   {
-    "sender":"Lula Leus",
+    "sender":"Asher Kastro",
     "receiver": "Mor Pinkweiss",
     "title":"Sed rutrum diam massa, vel!",
-    "body":"Vestibulum laoreet eros ornare turpis volutpat, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
+    "body":"Vestibulum laoreet eros ornare <s>turpis volutpat</s>, at dignissim purus efficitur. Quisque non vulputate ante. Fusce libero ligula, porta a commodo nec, consectetur non arcu. Vivamus eget orci justo. Nam quis quam dolor. Mauris luctus dui et dui placerat, sit amet elementum mauris gravida. In in eros sit amet felis pulvinar cursus vel facilisis ante. Maecenas eget egestas ipsum. Sed sit amet sem posuere, rutrum lacus id, congue nibh. Morbi nisi velit, bibendum ac neque a, tempus euismod est. Mauris nec suscipit nisi, ullamcorper dapibus nunc.",
     "attachment":"false",
     "isStarred":"false",
     "date":"1464856574963"

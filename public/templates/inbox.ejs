@@ -35,7 +35,7 @@
             </td>
         </tr>
         <tr ng-repeat-end>
-            <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
+            <td colspan="5" ng-show = "message.isOpen" ng-bind-html="message.body"></td>
         </tr>
         </tbody>
     </table>
@@ -66,7 +66,7 @@
             </td>
         </tr>
         <tr ng-repeat-end>
-            <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
+            <td colspan="5" ng-show = "message.isOpen" ng-bind-html="message.body"></td>
         </tr>
         </tbody>
     </table>

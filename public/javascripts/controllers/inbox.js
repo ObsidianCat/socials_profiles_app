@@ -2,19 +2,16 @@
  * Created by Lula on 6/1/2016.
  */
 angular.module('paloAltoFrontApp').controller("inboxCtrl", [
-    '$scope',
+    '$scope', '$sce',
     'DataHandler', 'MessageType',
-    function($scope, DataHandler, MessageType){
+    function($scope, $sce, DataHandler, MessageType){
         $scope.sentMessages = [];
         $scope.receivedMessages = [];
+        $scope.displayedMessageType = MessageType.RECEIVED;
 
-        DataHandler.getMessages(MessageType.SENT).then(function(response) {
-            $scope.sentMessages  = response;
-            console.log($scope.sentMessages);
-        });
-        DataHandler.getMessages(MessageType.RECEIVED).then(function(response) {
-            $scope.receivedMessages  = response;
-        });
+        function trustHtmlBody(message) {
+            message.body = $sce.trustAsHtml(message.body);
+        }
 
         function toggle(messages, index) {
             for (var i = 0; i < messages.length; i++) {
@@ -29,43 +26,67 @@ angular.module('paloAltoFrontApp').controller("inboxCtrl", [
             }
         }
 
-        $scope.displayedMessageType = MessageType.RECEIVED;
+        loadMessages($scope.displayedMessageType, getMessagesForType($scope.displayedMessageType));
 
-        $scope.displayMessages = function(type) {
-            $scope.displayedMessageType = type;
+        /**
+         * Loads messages for type from the server
+         * @param type
+         */
+        function loadMessages(type) {
+            DataHandler.getMessages(type).then(function(response) {
+                var messages = getMessagesForType(type);
+                $scope[messages]  = response;
+                for (var i = 0; i < $scope[messages].length; i++) {
+                    trustHtmlBody($scope[messages][i]);
+                }
+            });
+        }
+
+        /**
+         * Returns the name of the member on scope
+         * for that message type
+         * @param type - defaults to received messages
+         * @returns {string}
+         */
+        function getMessagesForType(type) {
+            var messages = "receivedMessages";
             if (type == MessageType.SENT) {
-
+                messages = "sentMessages";
             }
             else if (type == MessageType.RECEIVED) {
-
-            }
-        };
-
-        $scope.toggleStar = function($event, type, index) {
-            $event.stopPropagation();
-
-            if (type == MessageType.SENT) {
-                $scope.sentMessages[index].isStarred = !$scope.sentMessages[index].isStarred;
-            }
-            else if (type == MessageType.RECEIVED) {
-                $scope.receivedMessages[index].isStarred = !$scope.receivedMessages[index].isStarred
+                messages = "receivedMessages";
             }
             else {
                 console.warn("Unknown type " + type);
             }
+            return messages;
+        }
+
+        /**
+         * Triggers on tab switch
+         * @param type
+         */
+        $scope.displayMessages = function(type) {
+            $scope.displayedMessageType = type;
+            var messages = getMessagesForType(type);
+
+            loadMessages(type, $scope[messages]);
         };
-        
+
+        $scope.toggleStar = function($event, type, index) {
+            $event.stopPropagation();
+            var messages = getMessagesForType[type];
+            $scope[messages][index].isStarred = !$scope[messages][index].isStarred;
+        };
+
+        /**
+         * Triggers on message header
+         * @param type
+         * @param index
+         */
         $scope.toggleMessage = function(type, index) {
-            switch (type) {
-                case MessageType.SENT:
-                    toggle($scope.sentMessages, index);
-                    break;
-                case MessageType.RECEIVED:
-                    toggle($scope.receivedMessages, index);
-                    break;
-                default:
-                    console.warn("Unknown type " + type);
-            }
+            var messages = getMessagesForType(type);
+            toggle($scope[messages], index);
         };
     }
 ]);

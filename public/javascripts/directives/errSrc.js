@@ -1,5 +1,5 @@
 /**
- * Deal with the problem when profile avatar image src not empty, but invalid.
+ * Directive deals with the problem when profile avatar image src not empty, but invalid.
  */
 angular.module('paloAltoFrontApp').directive('errSrc', function() {
     return {

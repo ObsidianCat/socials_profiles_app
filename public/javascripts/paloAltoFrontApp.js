@@ -5,6 +5,7 @@ angular.module('paloAltoFrontApp', ['ngRoute', 'ngResource'])
     .config([
     "$routeProvider",
     function ($routeProvider) {
+        //set up all routes of the front end app. 
         $routeProvider
             .when('/profiles', {
                 templateUrl: '/templates/profiles.ejs',
