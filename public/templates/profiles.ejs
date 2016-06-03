@@ -1,21 +1,24 @@
 <h1 class="page-header">Your friends</h1>
-<div class="profiles row">
-    <div ng-repeat="profile in profilesList" class="col-sm-4 ">
+<div class="profiles row" ng-repeat = "profileRow in profileRows">
+    <div ng-repeat="profile in profileRow"  class="col-sm-4" >
         <article class="profile-content">
             <section class="main-info">
                 <div class="image-wrap">
-                    <img ng-src="{{profile.pictureUrl}}" alt="..." class="img-responsive img-circle">
+                    <img ng-src="{{profile.pictureUrl.trim().length > 0 ?
+                                    profile.pictureUrl : 'images/profile-avatar-placeholder.jpg'}}"
+                         err-src="images/profile-avatar-placeholder.jpg"
+                         alt="..." class="img-responsive img-circle">
                 </div>
                 <div class="text">
                     <h4>{{profile.fullName}}</h4>
                     <p>{{profile.shortTitle}}</p>
                     <p class="small">{{profile.status}}</p>
+                    <section class="statistics">
+                        <a  href="#"><span class="badge">{{profile.numOfLikes}}</span>Photos </a>
+                        <a href="#"><span class="badge">{{profile.numOfPhotos}}</span>Likes </a>
+                        <a  href="#"><span class="badge">{{profile.numOfFriends}}</span>Friends</a>
+                    </section>
                 </div>
-            </section>
-            <section class="statictics">
-                    <a  href="#">Photos <span class="badge">{{profile.numOfLikes}}</span></a>
-                    <a href="#">Likes <span class="badge">{{profile.numOfPhotos}}</span></a></a>
-                    <a  href="#">Friends<span class="badge">{{profile.numOfFriends}}</span></a></a>
             </section>
         </article>
     </div>

@@ -3,16 +3,16 @@
  */
 angular.module('paloAltoFrontApp').controller("inboxCtrl", [
     '$scope',
-    'DataHandler',
-    function($scope, DataHandler){
+    'DataHandler', 'MessageType',
+    function($scope, DataHandler, MessageType){
         $scope.sentMessages = [];
         $scope.receivedMessages = [];
 
-        DataHandler.getMessages("sent").then(function(response) {
+        DataHandler.getMessages(MessageType.SENT).then(function(response) {
             $scope.sentMessages  = response;
             console.log($scope.sentMessages);
         });
-        DataHandler.getMessages("received").then(function(response) {
+        DataHandler.getMessages(MessageType.RECEIVED).then(function(response) {
             $scope.receivedMessages  = response;
         });
 
@@ -29,15 +29,26 @@ angular.module('paloAltoFrontApp').controller("inboxCtrl", [
             }
         }
 
+        $scope.displayedMessageType = MessageType.RECEIVED;
+
+        $scope.displayMessages = function(type) {
+            $scope.displayedMessageType = type;
+            if (type == MessageType.SENT) {
+
+            }
+            else if (type == MessageType.RECEIVED) {
+
+            }
+        };
+
         $scope.toggleStar = function($event, type, index) {
             $event.stopPropagation();
 
-
-            if (type == "sent") {
-                $scope.sentMessages[i].isStarred = !$scope.sentMessages[i].isStarred;
+            if (type == MessageType.SENT) {
+                $scope.sentMessages[index].isStarred = !$scope.sentMessages[index].isStarred;
             }
-            else if (type == "received") {
-                $scope.receivedMessages[i].isStarred = !$scope.receivedMessages[i].isStarred
+            else if (type == MessageType.RECEIVED) {
+                $scope.receivedMessages[index].isStarred = !$scope.receivedMessages[index].isStarred
             }
             else {
                 console.warn("Unknown type " + type);
@@ -46,10 +57,10 @@ angular.module('paloAltoFrontApp').controller("inboxCtrl", [
         
         $scope.toggleMessage = function(type, index) {
             switch (type) {
-                case "sent":
+                case MessageType.SENT:
                     toggle($scope.sentMessages, index);
                     break;
-                case "received":
+                case MessageType.RECEIVED:
                     toggle($scope.receivedMessages, index);
                     break;
                 default:

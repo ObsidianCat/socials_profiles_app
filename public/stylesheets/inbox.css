@@ -1,0 +1,20 @@
+#inbox-page table th:first-child{
+    width: 20%;
+}
+
+#inbox-page .nav-tabs li{
+    cursor: pointer;
+}
+
+#inbox-page table tbody tr:nth-child(odd){
+    cursor: pointer;
+}
+
+#inbox-page .attachment span,
+#inbox-page .star span {
+    font-size: 1.4em;
+}
+#inbox-page .star span{
+    color:goldenrod;
+}
+

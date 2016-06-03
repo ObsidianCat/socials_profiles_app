@@ -1,56 +1,73 @@
 <div id="inbox-page">
     <h1 class="page-header">Inbox</h1>
-    <div class="table-responsive">
-        <h2 class="sub-header">Received</h2>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Sender</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Attachment</th>
-                <th>Starred</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat-start="message in receivedMessages"
-                ng-click = "toggleMessage('received', $index)">
-                <td>{{message.sender}}</td>
-                <td>{{message.title}}</td>
-                <td>{{message.date}}</td>
-                <td>{{message.attachment}}</td>
-                <td ng-click = "toggleStar($event, 'received', $index)">{{message.isStarred}}</td>
-            </tr>
-            <tr ng-repeat-end>
-                <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
-            </tr>
-            </tbody>
-        </table>
+    <ul class = "nav nav-tabs">
+        <li class = "{{displayedMessageType == 'received' ? 'active' : ''}}">
+            <a ng-click = "displayMessages('received')" >Received</a>
+        </li>
+        <li  class = "{{displayedMessageType == 'sent' ? 'active' : ''}}">
+            <a ng-click = "displayMessages('sent')" >Sent</a>
+        </li>
+    </ul>
 
-        <h2 class="sub-header">Sent</h2>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Receiver</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Attachment</th>
-                <th>Starred</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat-start="message in sentMessages"
-                ng-click = "toggleMessage('sent', $index)">
-                <td>{{message.receiver}}</td>
-                <td>{{message.title}}</td>
-                <td>{{message.date}}</td>
-                <td>{{message.attachment}}</td>
-                <td ng-click = "toggleStar($event, 'sent', $index)">{{message.isStarred}}</td>
-            </tr>
-            <tr ng-repeat-end>
-                <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="table table-striped"
+        ng-show = "displayedMessageType == 'received'">
+        <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Attachment</th>
+            <th>Starred</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat-start="message in receivedMessages"
+            ng-click = "toggleMessage('received', $index)">
+            <td>{{message.sender}}</td>
+            <td>{{message.title}}</td>
+            <td>{{message.date | date: "dd/MM/yyyy HH:mm:ss"}}</td>
+            <td class="attachment" >
+                <span ng-show="message.attachment == true" class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+            </td>
+            <td class="star" ng-click = "toggleStar($event, 'received', $index)">
+                <span ng-show="message.isStarred == true" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span ng-show="message.isStarred == false" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </td>
+        </tr>
+        <tr ng-repeat-end>
+            <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped"
+           ng-show = "displayedMessageType == 'sent'">
+        <thead>
+        <tr>
+            <th>Receiver</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Attachment</th>
+            <th>Starred</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat-start="message in sentMessages"
+            ng-click = "toggleMessage('sent', $index)">
+            <td>{{message.receiver}}</td>
+            <td>{{message.title}}</td>
+            <td>{{message.date | date: "dd/MM/yyyy HH:mm:ss"}}</td>
+            <td class="attachment" >
+                <span ng-show="message.attachment == true" class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+            </td>
+            <td class="star" ng-click = "toggleStar($event, 'sent', $index)">
+                <span ng-show="message.isStarred == true" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span ng-show="message.isStarred == false" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </td>
+        </tr>
+        <tr ng-repeat-end>
+            <td colspan="5" ng-show = "message.isOpen">{{message.body}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
