@@ -1,4 +1,4 @@
-# Palo Alto Social
+# Social profiles app
 
 ## Requirements
 * NodeJS/npm
