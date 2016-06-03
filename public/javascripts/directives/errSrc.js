@@ -1,7 +1,7 @@
 /**
  * Directive deals with the problem when profile avatar image src not empty, but invalid.
  */
-angular.module('paloAltoFrontApp').directive('errSrc', function() {
+var errSrc = function() {
     return {
         link: function(scope, element, attrs) {
             element.bind('error', function() {
@@ -11,4 +11,6 @@ angular.module('paloAltoFrontApp').directive('errSrc', function() {
             });
         }
     }
-});
+};
+
+module.exports = errSrc;

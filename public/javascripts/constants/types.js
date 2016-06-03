@@ -1,6 +1,6 @@
-angular.module('paloAltoFrontApp').constant("MessageType",
-    {
-        RECEIVED:"received",
-        SENT:"sent"
-    }
-);
+var types = {
+    RECEIVED:"received",
+    SENT:"sent"
+};
+
+module.exports = types;

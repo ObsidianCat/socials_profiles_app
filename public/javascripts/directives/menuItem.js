@@ -1,34 +1,35 @@
 /**
  * Directive intended for use in elements of navigation menus.
  */
-angular.module('paloAltoFrontApp').directive('menuItem', ['$location',
-    function ($location) {
-        function linker(scope, element, attrs) {
 
-            // Each element decides if it's active or not based on path
-            function toggleActive() {
-                // On first render
-                if (element.find("a").attr("href").indexOf($location.path()) >= 0) {
-                    element.addClass("active");
-                }
-                else {
-                    element.removeClass("active");
-                }
-            }
+var menuItem = function ($location) {
+    function linker(scope, element, attrs) {
 
-            scope.$on("$routeChangeSuccess", function() {
-               toggleActive();
-            });
-
-            // On menu click
-            element.on("click", function(){
+        // Each element decides if it's active or not based on path
+        function toggleActive() {
+            // On first render
+            if (element.find("a").attr("href").indexOf($location.path()) >= 0) {
                 element.addClass("active");
-                element.siblings().removeClass("active");
-            });
+            }
+            else {
+                element.removeClass("active");
+            }
         }
-        return {
-            restrict: 'A',
-            link: linker
-        };
+
+        scope.$on("$routeChangeSuccess", function() {
+            toggleActive();
+        });
+
+        // On menu click
+        element.on("click", function(){
+            element.addClass("active");
+            element.siblings().removeClass("active");
+        });
     }
-]);
+    return {
+        restrict: 'A',
+        link: linker
+    };
+};
+
+module.exports = menuItem;
