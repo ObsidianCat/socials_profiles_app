@@ -10,6 +10,7 @@
 * ExpressJS
 * MongoDB
 * Browserify
+* Bootstrap
 
 ## Installation
 ```
