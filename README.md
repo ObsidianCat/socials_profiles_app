@@ -2,7 +2,8 @@
 
 ## Requirements
 * NodeJS/npm
-* MongoDB up and running
+* MongoDB
+
 
 ## Technologies and frameworks
 * AngularJS
@@ -12,6 +13,7 @@
 
 ## Installation
 ```
+Mongod Processes must be running
 npm install
 npm run browserify
 npm start
